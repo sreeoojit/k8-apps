@@ -1,0 +1,33 @@
+expose:
+  type: loadBalancer
+  tls:
+    enabled: false
+
+  loadBalancer:
+    IP: 172.16.0.97   # MetalLB IP
+
+externalURL: http://172.16.0.97
+
+harborAdminPassword: "Welcome@10"
+
+persistence:
+  enabled: true
+  persistentVolumeClaim:
+    registry:
+      size: 50Gi
+    database:
+      size: 10Gi
+    redis:
+      size: 5Gi
+
+trivy:
+  enabled: true
+
+portal:
+  replicas: 1
+
+core:
+  replicas: 1
+
+jobservice:
+  replicas: 1
