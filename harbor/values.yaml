@@ -3,7 +3,6 @@ expose:
 
   ingress:
     className: nginx
-
     hosts:
       core: harbor.gcloud.in
 
@@ -16,14 +15,11 @@ harborAdminPassword: Harbor12345
 
 persistence:
   enabled: true
-
   persistentVolumeClaim:
     registry:
       size: 20Gi
-
     database:
       size: 5Gi
-
     redis:
       size: 2Gi
 
