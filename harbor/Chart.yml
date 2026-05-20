@@ -1,0 +1,11 @@
+apiVersion: v2
+name: harbor
+description: Harbor registry deployment
+type: application
+
+version: 0.1.0
+
+dependencies:
+  - name: harbor
+    version: "1.17.0"
+    repository: "https://helm.goharbor.io"
