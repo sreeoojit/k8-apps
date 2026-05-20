@@ -1,33 +1,31 @@
 expose:
-  type: loadBalancer
+  type: ingress
+
+  ingress:
+    className: nginx
+
+    hosts:
+      core: harbor.gcloud.in
+
   tls:
     enabled: false
 
-  loadBalancer:
-    IP: 172.16.0.97   # MetalLB IP
+externalURL: http://harbor.gcloud.in
 
-externalURL: http://172.16.0.97
-
-harborAdminPassword: "Harbor@123!"
+harborAdminPassword: Harbor12345
 
 persistence:
   enabled: true
+
   persistentVolumeClaim:
     registry:
-      size: 50Gi
+      size: 20Gi
+
     database:
-      size: 10Gi
-    redis:
       size: 5Gi
+
+    redis:
+      size: 2Gi
 
 trivy:
   enabled: true
-
-portal:
-  replicas: 1
-
-core:
-  replicas: 1
-
-jobservice:
-  replicas: 1
